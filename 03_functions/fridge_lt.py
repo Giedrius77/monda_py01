@@ -16,3 +16,5 @@ BONUS:
 ** Jeigu receptas neišeina, išvardinti kiek ir kokių produktų trūksta.
 
 """
+
+def prideti_produkta(saldytuvas_turinys, produktas, kiekis):
