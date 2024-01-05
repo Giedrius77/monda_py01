@@ -1,43 +1,37 @@
 
-#Mano kodas is Ellie, bet pagal GPT pavyzdi
-
-def income(pajamos, suma):
-    biudzetas[pajamos] = float(suma)
-    return biudzetas
-
-def expenses(islaidos, suma):
-    biudzetas[islaidos] = -abs(float(suma))
-    return biudzetas
+#Mano kodas is Ellie, bet pagal GPT pavyzdi 
 
 biudzetas = {}
 
-while True:
-    print("""
-    ---Sveiki, pasirinkite jums norima operacija---
+def income():
+    pajamu_saltinis = input("Prasome ivesti pajamu saltini: ")
+    suma = float(input("Iveskite suma: " "€"))
+    if pajamu_saltinis in biudzetas:
+        biudzetas[pajamu_saltinis] = biudzetas[pajamu_saltinis] + suma
+    else:
+        biudzetas[pajamu_saltinis] = suma
 
-1 - Pridekite savo pajamu saltinius ir sumas
-2 - Pridekite savo islaidu apibudinimus ir sumas
-3 - Parodykite visus mano pavedimus
-4 - Noreciau suzinoti savo likuti
+def expenses():
+    islaidu_pavadinimas = input("Prasome ivesti islaidu pavadinima: ")
+    suma = float(input("Iveskite suma: " "€"))
+    if islaidu_pavadinimas in biudzetas:
+        biudzetas[islaidu_pavadinimas] = biudzetas[islaidu_pavadinimas] - suma
+    else:
+        biudzetas[islaidu_pavadinimas] = -suma
+    
+def spausdinti_zurnala ():
+    print("Biudzetao zurnalas:")
+    for paskirtis, suma in biudzetas.items():
+        print(f"{paskirtis}: {suma}")
 
-0 = Baigti apziura     
-""")
+def skaiciuoti_balansa():
+    balansas = sum(biudzetas.values())
+    print(f"Biudzeto balansas: {balansas}") 
 
-    pasirinkti = input( "Iveskite skaiciu is meniu: ")
-    if pasirinkti.startswith('0'):
-        print("Biudzeto patikrinimas baigtas")
-        break
-    elif pasirinkti.startswith('1'):
-        pajamos = input("Prasome ivesti pajamu saltini: ")
-        suma = input("Iveskite suma: ")
-        biudzetas = income(pajamos, suma)
-    elif pasirinkti.startswith('2'):
-        islaidos = input("Prasome ivesti islaidu pavadinima: ")
-        suma = input("Iveskite suma: ")
-        biudzetas = expenses(islaidos, suma)
-    elif pasirinkti.startswith('3'):
-        print("Tavo visi pavedimai: ")
-        for key, value in biudzetas.items():
-            print(f"""{key}  {value}""")
-    elif pasirinkti.startswith('4'):
-        print("Jusu likutis: ", sum(biudzetas.values()))
+    income()
+    income()
+    expenses()
+    expenses()
+
+    spausdinti_zurnala()
+    skaiciuoti_balansa()
