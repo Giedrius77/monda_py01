@@ -14,3 +14,44 @@ Reikalavimai:
 Pastabos:
 * Stenkitės nekartoti kodo - funkcionalumui, kuriam kodas kartotųsi, parašykite atskiras funkcijas ir jas panaudokite kelis kartus kur reikia.
 """
+
+def create_album():
+    album = {}
+
+    # Get album information from the user
+    artist = input("Enter the artist name: ")
+    title = input("Enter the album title: ")
+
+    # Create a list to store the tracks
+    tracks = []
+
+    # Get track information from the user
+    num_tracks = int(input("Enter the number of tracks: "))
+    for i in range(num_tracks):
+        track = {}
+        track["sequence"] = i + 1
+        track["title"] = input("Enter track title: ")
+        track["duration"] = input("Enter track duration: ")
+        tracks.append(track)
+
+    # Add artist, title, and tracks to the album dictionary
+    album["artist"] = artist
+    album["title"] = title
+    album["tracks"] = tracks
+
+    return album
+
+# Create an album
+album = create_album()
+
+# Print the album information
+print("\nAlbum Information:")
+print("Artist:", album["artist"])
+print("Title:", album["title"])
+print("Tracks:")
+for track in album["tracks"]:
+    print("Sequence:", track["sequence"])
+    print("Title:", track["title"])
+    print("Duration:", track["duration"])
+    print()
+
