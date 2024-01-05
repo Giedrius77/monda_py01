@@ -1,11 +1,13 @@
 
-#Mano kodas is Ellie, bet pagal GPT pavyzdi 
+#kodas pagal pavyzdi 
 
-biudzetas = {}
+
+
+
 
 def income():
     pajamu_saltinis = input("Prasome ivesti pajamu saltini: ")
-    suma = float(input("Iveskite suma: " "€"))
+    suma = float(input("Iveskite suma: "))
     if pajamu_saltinis in biudzetas:
         biudzetas[pajamu_saltinis] = biudzetas[pajamu_saltinis] + suma
     else:
@@ -13,7 +15,7 @@ def income():
 
 def expenses():
     islaidu_pavadinimas = input("Prasome ivesti islaidu pavadinima: ")
-    suma = float(input("Iveskite suma: " "€"))
+    suma = float(input("Iveskite suma: "))
     if islaidu_pavadinimas in biudzetas:
         biudzetas[islaidu_pavadinimas] = biudzetas[islaidu_pavadinimas] - suma
     else:
@@ -28,10 +30,12 @@ def skaiciuoti_balansa():
     balansas = sum(biudzetas.values())
     print(f"Biudzeto balansas: {balansas}") 
 
-    income()
-    income()
-    expenses()
-    expenses()
+biudzetas = {}
 
-    spausdinti_zurnala()
-    skaiciuoti_balansa()
+income()
+income()
+expenses()
+expenses()
+
+spausdinti_zurnala()
+skaiciuoti_balansa() 

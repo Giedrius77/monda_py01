@@ -11,7 +11,7 @@ Reikalavimai
 * Suskaičiuoti biudžeto balansą
 
 """
-# Mano pagal Ellie su lietuviskais terminais
+# kodas pagal Ellie pavyzdi
 
 def income(pajamos, suma):
     biudzetas[pajamos] = float(suma)
@@ -32,14 +32,12 @@ while True:
 3 - Parodykite visus mano pavedimus
 4 - Noreciau suzinoti savo likuti
 
-0 = Baigti apziura     
+0 = Baigti apziura      
 """)
 
     pasirinkti = input( "Iveskite skaiciu is meniu: ")
-    if pasirinkti.startswith('0'):
-        print("Biudzeto patikrinimas baigtas")
-        break
-    elif pasirinkti.startswith('1'):
+    
+    if pasirinkti.startswith('1'):
         pajamos = input("Prasome ivesti pajamu saltini: ")
         suma = input("Iveskite suma: ")
         biudzetas = income(pajamos, suma)
@@ -53,3 +51,6 @@ while True:
             print(f"""{key}  {value}""")
     elif pasirinkti.startswith('4'):
         print("Jusu likutis: ", sum(biudzetas.values()))
+    elif pasirinkti.startswith('0'):
+        print("Biudzeto patikrinimas baigtas")
+        break
