@@ -11,7 +11,7 @@ Reikalavimai
 * Suskaičiuoti biudžeto balansą
 
 """
-biudzetas = {}
+biudzetas = {} #dict
 
 def prideti_pajamas():
     paskirtis = input("Įveskite pajamų paskirtį: ")
